@@ -1,0 +1,82 @@
+.otp-container {
+  min-height: 100vh;
+  background-color: #fff7eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.otp-card {
+  background: #ffffff;
+  width: 360px;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.otp-icon {
+  font-size: 32px;
+  background: #ffb347;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+}
+
+.otp-card h2 {
+  margin-bottom: 8px;
+}
+
+.otp-text {
+  font-size: 14px;
+  color: #555;
+}
+
+.otp-demo {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.otp-card input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+}
+
+.otp-card button {
+  width: 100%;
+  padding: 10px;
+  background: #2f80ed;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.otp-card button:hover {
+  background: #256ad4;
+}
+
+.resend {
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+.resend span {
+  color: #2f80ed;
+  cursor: pointer;
+}
+
+.back-login {
+  margin-top: 10px;
+  font-size: 13px;
+}

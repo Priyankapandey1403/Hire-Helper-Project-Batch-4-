@@ -1,0 +1,96 @@
+.login-wrapper {
+  min-height: 100vh;
+  background: #eef4ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  background: #ffffff;
+  width: 380px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.logo img {
+  width: 45px;
+  height: 45px;
+}
+
+.login-card h2 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.login-card label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0 15px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.forgot {
+  color: #2563eb;
+  cursor: pointer;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 11px;
+  background: #2563eb;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.login-card button:hover {
+  background: #1e40af;
+}
+
+.signup {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 18px;
+}
+
+.signup span {
+  color: #2563eb;
+  cursor: pointer;
+}
