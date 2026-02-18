@@ -8,6 +8,10 @@ import ForgotPassword from "./pages/ForgotPassword";
 import VerifyCode from "./pages/VerifyCode";
 import NewPassword from "./pages/NewPassword";
 import Dashboard from "./pages/Dashboard";
+import Feed from "./pages/Feed";
+import AddTask from "./pages/addtask";
+import MyTasks from "./pages/mytasks";
+
 
 function App() {
   return (
@@ -22,6 +26,10 @@ function App() {
         <Route path="/verify-code" element={<VerifyCode />} />
           <Route path="/new-password" element={<NewPassword/>} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/feed" element={<Feed />} />
+          <Route path="/add-task" element={<AddTask />} />
+          <Route path="/my-tasks" element={<MyTasks />} />
+
                 
       </Routes>
     </BrowserRouter>
