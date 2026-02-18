@@ -5,7 +5,9 @@
 }
 
 .main-content {
+  margin-left: 260px; 
   flex: 1;
   padding: 20px;
   overflow-y: auto;
+  min-height: 100vh;
 }

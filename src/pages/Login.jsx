@@ -10,18 +10,22 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const storedUser = JSON.parse(localStorage.getItem("user"));
+    // Get all users from localStorage
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    if (
-      storedUser &&
-      storedUser.email === email &&
-      storedUser.password === password
-    ) {
-      localStorage.setItem("isAuth", "true");
-      navigate("/dashboard");
-    } else {
-      alert("Invalid email or password");
-    }
+    // Check if user exists with correct password
+    const foundUser = users.find(
+      (user) => user.email === email && user.password === password
+    );
+
+    if (foundUser) {
+  localStorage.setItem("isAuth", "true");
+
+  // Save logged-in user data
+  localStorage.setItem("currentUser", JSON.stringify(foundUser));
+
+  navigate("/dashboard");
+}
   };
 
   return (

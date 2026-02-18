@@ -11,14 +11,29 @@ const ChangePassword = () => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
+    alert("Passwords do not match");
+    return;
+  }
 
-    // later: API call
-    alert("Password reset successful");
-    navigate("/login");
-  };
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const resetEmail = localStorage.getItem("resetEmail");
+
+  const updatedUsers = users.map((user) => {
+    if (user.email === resetEmail) {
+      return { ...user, password: password };
+    }
+    return user;
+  });
+
+  localStorage.setItem("users", JSON.stringify(updatedUsers));
+
+  // clean temporary data
+  localStorage.removeItem("resetEmail");
+  localStorage.removeItem("resetOTP");
+
+  alert("Password reset successful");
+  navigate("/login");
+};
 
   return (
     <div className="auth-container">

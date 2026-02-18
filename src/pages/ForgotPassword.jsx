@@ -9,28 +9,23 @@ const ForgotPassword = () => {
   const handleReset = (e) => {
   e.preventDefault();
 
-  const storedUser = JSON.parse(localStorage.getItem("user"));
+  // Get all users (ARRAY)
+  const users = JSON.parse(localStorage.getItem("users")) || [];
 
-  if (storedUser && storedUser.email === email) {
-     try {
-      const otp = "123456"; // demo OTP
+  // Find user with entered email
+  const existingUser = users.find((user) => user.email === email);
+
+  if (existingUser) {
+    const otp = "123456"; // demo OTP
     localStorage.setItem("resetOTP", otp);
     localStorage.setItem("resetEmail", email);
 
-    console.log("Reset code sent to your email (Demo OTP: 123456)");
-     navigate("/verify-code");
-     } catch (error) {
-      console.log(error)
-     }
-    
-    
-
+    console.log("Reset code sent (Demo OTP: 123456)");
+    navigate("/verify-code");
   } else {
     alert("Email not registered");
   }
 };
-  
-
   return (
     <div className="forgot-container">
       <div className="forgot-card">

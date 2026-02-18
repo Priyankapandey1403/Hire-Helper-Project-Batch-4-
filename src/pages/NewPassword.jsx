@@ -3,24 +3,30 @@ import { useNavigate } from "react-router-dom";
 import "./NewPassword.css";
 
 const NewPassword = () => {
-  console.log("NewPassword component loaded 🔥");
-
   const [newPassword, setNewPassword] = useState("");
+  const [email, setEmail] = useState(""); // Email input to identify user
   const navigate = useNavigate();
 
   const handleChangePassword = (e) => {
     e.preventDefault();
 
-    console.log("Change password function running ✅");
+    // Get all users from localStorage (or empty array)
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    const storedUser = JSON.parse(localStorage.getItem("user"));
+    // Find user by email
+    const userIndex = users.findIndex((user) => user.email === email);
 
-    if (storedUser) {
-      storedUser.password = newPassword;
-      localStorage.setItem("user", JSON.stringify(storedUser));
+    if (userIndex !== -1) {
+      // Update password
+      users[userIndex].password = newPassword;
+
+      // Save back to localStorage
+      localStorage.setItem("users", JSON.stringify(users));
 
       alert("Password changed successfully!");
       navigate("/login");
+    } else {
+      alert("Email not found!");
     }
   };
 
@@ -28,11 +34,18 @@ const NewPassword = () => {
     <div className="reset-wrapper">
       <div className="reset-card">
         <h2>Forgot Password</h2>
-        <p className="subtitle">
-          Reset your password in a few steps.
-        </p>
+        <p className="subtitle">Reset your password in a few steps.</p>
 
         <form onSubmit={handleChangePassword}>
+          <label>Email address</label>
+          <input
+            type="email"
+            placeholder="Enter your registered email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+
           <label>New password</label>
           <input
             type="password"

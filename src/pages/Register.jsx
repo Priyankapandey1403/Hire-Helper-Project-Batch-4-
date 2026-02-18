@@ -16,6 +16,7 @@ function Register() {
     console.log("Register function running ✅");
 
     const userData = {
+       name: `${firstName} ${lastName}`, 
       firstName,
       lastName,
       email,
@@ -23,11 +24,26 @@ function Register() {
       password,
     };
 
-    // ✅ Save to localStorage
-    localStorage.setItem("user", JSON.stringify(userData));
+    // ✅ Get existing users from localStorage or empty array
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    alert("Registration successful!");
-    navigate("/login");
+    // Check if email already exists
+    const existingUser = users.find((user) => user.email === email);
+    if (existingUser) {
+      alert("Email already registered! Please login or use another email.");
+      return;
+    }
+
+    // Add new user to array
+    users.push(userData);
+
+    // Save back to localStorage
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Registration successful! Please verify your email/OTP.");
+
+    // Redirect to Verify OTP page
+    navigate("/verify-otp", { state: { email } }); // optional: pass email to OTP page
   };
 
   return (
