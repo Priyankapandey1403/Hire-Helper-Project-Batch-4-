@@ -1,7 +1,11 @@
 import React from "react";
+import { FiBell } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 import "../styles/Feed.css";
 
 const Feed = () => {
+  const navigate = useNavigate();
+
   const tasks = [
     {
       title: "Moving Furniture",
@@ -41,7 +45,7 @@ const Feed = () => {
     {
       title: "Grocery Pickup Needed",
       description:
-        "Need someone to pick up groceries from local supermarket. List will be shared.",
+        "Need someone to pick up groceries from local supermarket.",
       category: "Errands",
       date: "Jul 4",
       location: "Kirkland",
@@ -85,16 +89,21 @@ const Feed = () => {
       <div className="feed-top">
         <div>
           <h2>Feed</h2>
-          <p className="feed-subtitle">
-            Find tasks that need help
-          </p>
+          <p className="feed-subtitle">Find tasks that need help</p>
         </div>
 
-        <div className="search-box">
-          <input
-            type="text"
-            placeholder="Search tasks..."
-          />
+        {/* Right Side (Search + Notification) */}
+        <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+          <div className="search-box">
+            <input type="text" placeholder="Search tasks..." />
+          </div>
+
+          <div
+            className="notification"
+            onClick={() => navigate("/dashboard/notifications")}
+          >
+            <FiBell size={22} />
+          </div>
         </div>
       </div>
 
