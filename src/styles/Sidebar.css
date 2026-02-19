@@ -48,6 +48,7 @@
   padding: 0;
 }
 
+<<<<<<< HEAD
 .menu li {
   display: flex;
   align-items: center;
@@ -120,3 +121,18 @@
   background: #ffeaea;
   color: red;
 }
+=======
+.sidebar li {
+  margin: 15px 0;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.sidebar a:hover {
+  color: #22c55e;
+}
+>>>>>>> c6df3d0edf44e97ad3fe55d9c111a954327741f0

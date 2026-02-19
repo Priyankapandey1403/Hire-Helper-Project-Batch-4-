@@ -1,8 +1,4 @@
-.dashboard {
-  display: flex;
-  height: 100vh;
-  background-color: #f5f6fa;
-}
+.username {
 
 .main-content {
   margin-left: 260px; 

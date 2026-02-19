@@ -1,13 +1,17 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Sidebar from "../components/Sidebar";
 import Feed from "../components/Feed";
 import Notifications from "./Notifications";
 import "../styles/Dashboard.css";
 
-const Dashboard = () => {
+function Dashboard() {
+
+  // Get user from localStorage
+  const userData = JSON.parse(localStorage.getItem("user"));
+
+  const firstName = userData?.firstName || "User";
+
   return (
-    <div className="dashboard">
+    <div className="dashboard-container">
+
       <Sidebar />
 
       <div className="main-content">
@@ -19,8 +23,9 @@ const Dashboard = () => {
           <Route path="notifications" element={<Notifications />} />
         </Routes>
       </div>
+
     </div>
   );
-};
+}
 
 export default Dashboard;
