@@ -1,30 +1,40 @@
-import React, { useState } from "react";
-import TaskCard from "../components/TaskCard";
+import React, { useEffect, useState } from "react";
 
 function MyTasks() {
 
-  const [myTasks] = useState([
-    {
-      id: 1,
-      title: "My Cleaning Task",
-      description: "Clean my room",
-      location: "Hyderabad",
-      startTime: "2026-02-22",
-      endTime: "2026-02-22"
-    }
-  ]);
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    fetch(`http://localhost:5000/api/tasks/mytasks/${user.email}`)
+      .then(res => res.json())
+      .then(data => setTasks(data));
+
+  }, []);
 
   return (
+
     <div>
 
       <h2>My Tasks</h2>
 
-      {myTasks.map(task => (
-        <TaskCard key={task.id} task={task} />
+      {tasks.map(task => (
+
+        <div key={task.id}>
+
+          <h3>{task.title}</h3>
+          <p>{task.description}</p>
+
+        </div>
+
       ))}
 
     </div>
+
   );
+
 }
 
 export default MyTasks;

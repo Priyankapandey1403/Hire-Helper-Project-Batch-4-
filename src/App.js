@@ -9,8 +9,8 @@ import VerifyCode from "./pages/VerifyCode";
 import NewPassword from "./pages/NewPassword";
 import Dashboard from "./pages/Dashboard";
 import Feed from "./pages/Feed";
-import AddTask from "./pages/addtask";
-import MyTasks from "./pages/mytasks";
+import AddTask from "./pages/AddTask";
+import MyTasks from "./pages/MyTasks";
 
 
 function App() {

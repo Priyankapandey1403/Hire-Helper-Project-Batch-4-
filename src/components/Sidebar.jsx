@@ -1,21 +1,35 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/Sidebar.css";
 
-const Sidebar = () => {
+function Sidebar() {
   return (
     <div className="sidebar">
-      <h2 className="logo">Hire-a-Helper</h2>
+
+      <h2>HireHelper</h2>
 
       <ul>
-        <li className="active">Feed</li>
-        <li>My Tasks</li>
-        <li>Requests</li>
-        <li>My Requests</li>
-        <li>Add Task</li>
-        <li>Settings</li>
+
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+
+        <li>
+          <Link to="/feed">Feed</Link>
+        </li>
+
+        <li>
+          <Link to="/my-tasks">My Tasks</Link>
+        </li>
+
+        <li>
+          <Link to="/add-task">Add Task</Link>
+        </li>
+
       </ul>
+
     </div>
   );
-};
+}
 
 export default Sidebar;

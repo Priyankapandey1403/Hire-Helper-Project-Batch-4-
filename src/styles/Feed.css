@@ -97,3 +97,23 @@
   border-radius: 6px;
   cursor: pointer;
 }
+
+.task-card {
+  background: white;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.task-card h3 {
+  color: #2563eb;
+}
+
+.task-card button {
+  background-color: #22c55e;
+}
+
+.task-card button:hover {
+  background-color: #16a34a;
+}

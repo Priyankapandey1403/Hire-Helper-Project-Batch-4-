@@ -1,11 +1,19 @@
-.dashboard {
-  display: flex;
-  height: 100vh;
-  background-color: #f5f6fa;
-}
+.username {
 
-.main-content {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
+  color: #2563eb;
+
+  font-weight: bold;
+
+  font-size: 32px;
+
+  margin-left: 8px;
+
+  font-family: "Segoe UI", sans-serif;
+
+  background: linear-gradient(90deg, #2563eb, #22c55e);
+
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
 }

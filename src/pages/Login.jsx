@@ -7,77 +7,59 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-
-    if (
-      storedUser &&
-      storedUser.email === email &&
-      storedUser.password === password
-    ) {
-      localStorage.setItem("isAuth", "true");
-      navigate("/dashboard");
-    } else {
-      alert("Invalid email or password");
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password
+        })
+      });
+      const data = await response.json();
+      if (response.ok) {
+        // IMPORTANT: store user properly
+        localStorage.setItem("user", JSON.stringify(data.user));
+        navigate("/dashboard");
+      } else {
+        alert(data.message);
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Login failed");
     }
   };
 
   return (
-    <div className="login-wrapper">
-      <div className="login-card">
-        <div className="logo">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/906/906175.png"
-            alt="HireHelper"
-          />
-        </div>
-
-        <h2>Welcome Back</h2>
-        <p className="subtitle">Sign in to your Hire-a-Helper account</p>
-
-        <form onSubmit={handleSubmit}>
-          <label>Email address</label>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-
-          <div className="options">
-            <label className="remember">
-              <input type="checkbox" />
-              Remember me
-            </label>
-
-            <span
-              className="forgot"
-              onClick={() => navigate("/forgot-password")}
-              style={{ cursor: "pointer", color: "#2563eb" }}
-            >
-              Forgot your password?
-            </span>
-          </div>
-
-          <button type="submit">Sign in</button>
-        </form>
-
-        <p style={{ marginTop: "15px" }}>
-          Don&apos;t have an account? <Link to="/register">Sign up</Link>
+    <div className="login-container">
+      <form onSubmit={handleSubmit} className="login-form">
+        <h2>Login</h2>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit">Login</button>
+        <p>
+          Don't have an account? <Link to="/register">Register</Link>
         </p>
-      </div>
+        <p>
+          <Link to="/forgot-password">Forgot Password?</Link>
+        </p>
+      </form>
     </div>
   );
 };
