@@ -15,6 +15,8 @@ const Sidebar = () => {
 
   // ✅ Get logged-in user from localStorage
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  // Fallback avatar if none exists
+  const avatarUrl = currentUser?.avatarUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(currentUser?.name || 'User')}&background=3b82f6&color=fff&size=128`;
 
   const handleLogout = () => {
     localStorage.removeItem("isAuth");
@@ -36,27 +38,22 @@ const Sidebar = () => {
             <Home size={18} />
             <span>Feed</span>
           </li>
-
           <li className="menu-item">
             <ClipboardList size={18} />
             <span>My Tasks</span>
           </li>
-
           <li className="menu-item">
             <Inbox size={18} />
             <span>Requests</span>
           </li>
-
           <li className="menu-item">
             <Inbox size={18} />
             <span>My Requests</span>
           </li>
-
           <li className="menu-item">
             <Plus size={18} />
             <span>Add Task</span>
           </li>
-
           <li className="menu-item">
             <Settings size={18} />
             <span>Settings</span>
@@ -66,10 +63,16 @@ const Sidebar = () => {
 
       {/* Bottom Section */}
       <div className="bottom-profile">
-        <div className="profile-info">
+        <div className="profile-info" style={{display:'flex',alignItems:'center',gap:'12px'}}>
+          <img
+            src={avatarUrl}
+            alt="User Avatar"
+            style={{ width: 48, height: 48, borderRadius: '50%', objectFit: 'cover', border: '2px solid #3b82f6' }}
+          />
           <div>
-            <p className="name">{currentUser?.name}</p>
-            <p className="email">{currentUser?.email}</p>
+            <p className="name" style={{marginBottom:2}}>{currentUser?.name}</p>
+            <p className="email" style={{fontSize:12, color:'#888', margin:0}}>{currentUser?.email}</p>
+            <p style={{fontSize:12, color:'#3b82f6', margin:0}}>{currentUser?.role ? currentUser.role : 'User'}</p>
           </div>
         </div>
 

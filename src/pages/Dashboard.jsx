@@ -1,5 +1,9 @@
-import Feed from "../components/Feed";
+
+import React from "react";
+import Sidebar from "../components/Sidebar";
+import Feed from "../pages/Feed";
 import Notifications from "./Notifications";
+import { Routes, Route } from "react-router-dom";
 import "../styles/Dashboard.css";
 
 function Dashboard() {
