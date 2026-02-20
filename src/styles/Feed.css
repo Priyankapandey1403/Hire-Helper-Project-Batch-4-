@@ -8,6 +8,23 @@
 
 .feed-top {
   display: flex;
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
@@ -19,19 +36,27 @@
 }
 
 .feed-subtitle {
-  color: #6b7280;
-  font-size: 14px;
-  margin-top: 6px;
+
+.card {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px 0 rgba(34,197,94,0.10), 0 1.5px 8px 0 rgba(79,70,229,0.08);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.25s, transform 0.18s;
+  border: 1.5px solid #f1f5f9;
 }
 
-.search-box input {
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
   width: 250px;
   font-size: 14px;
   outline: none;
   transition: 0.3s;
+.card:hover {
+  transform: translateY(-7px) scale(1.02);
+  box-shadow: 0 16px 32px 0 rgba(34,197,94,0.16), 0 4px 16px 0 rgba(79,70,229,0.13);
+  border-color: #a5b4fc;
+}
 }
 
 .search-box input:focus {
@@ -49,19 +74,31 @@
 
 /* ===== CARD DESIGN ===== */
 
-.card {
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+
+.card-footer button {
+  background-color: #4f46e5;
+  border: none;
+  padding: 8px 18px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
   display: flex;
-  flex-direction: column;
-  transition: 0.3s ease;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(79,70,229,0.08);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
 }
 
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+.card-footer button:hover {
+  background-color: #4338ca;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 16px rgba(79,70,229,0.13);
+}
 }
 
 .card img {
@@ -74,16 +111,17 @@
   padding: 18px;
   display: flex;
   flex-direction: column;
-  flex: 1;
-}
 
-.card h3 {
-  margin: 8px 0;
-  font-size: 18px;
+.badge {
+  background: #22c55e;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(34,197,94,0.12);
+  letter-spacing: 0.5px;
 }
-
-.card p {
-  font-size: 14px;
   color: #555;
   margin-bottom: 15px;
 }

@@ -1,10 +1,19 @@
-import React from "react";
-import { FiBell } from "react-icons/fi";
+import React, { useState } from "react";
+import { FiBell, FiSend } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import "../styles/Feed.css";
+import Toast from "../components/Toast";
 
 const Feed = () => {
   const navigate = useNavigate();
+
+  // Toast state
+  const [toast, setToast] = useState({ show: false, message: "" });
+
+  // Show toast for request
+  const handleRequest = (taskTitle) => {
+    setToast({ show: true, message: `Request sent for: ${taskTitle}` });
+  };
 
   const tasks = [
     {
@@ -110,7 +119,11 @@ const Feed = () => {
       {/* Task Cards */}
       <div className="card-grid">
         {tasks.map((task, index) => (
-          <div className="card" key={index}>
+          <div className="card" key={index} style={{position:'relative'}}>
+            {/* Badge for new tasks */}
+            {index < 2 && (
+              <span className="badge" style={{position:'absolute',top:10,right:10,background:'#22c55e',color:'#fff',padding:'4px 10px',borderRadius:12,fontSize:12,fontWeight:600,zIndex:2}}>NEW</span>
+            )}
             <img src={task.image} alt={task.title} />
 
             <div className="card-body">
@@ -127,12 +140,19 @@ const Feed = () => {
               </div>
 
               <div className="card-footer">
-                <button>Request</button>
+                <button style={{display:'flex',alignItems:'center',gap:6}} onClick={() => handleRequest(task.title)}>
+                  <FiSend size={16} /> Request
+                </button>
               </div>
             </div>
           </div>
         ))}
       </div>
+      <Toast
+        message={toast.message}
+        show={toast.show}
+        onClose={() => setToast({ ...toast, show: false })}
+      />
     </div>
   );
 };

@@ -1,6 +1,21 @@
+.body{
+  position: relative;
+  min-height: 100vh;
+}
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+    filter: brightness(0.7);
+}
 .login-wrapper {
   min-height: 100vh;
-  background: #eef4ff;
+  /* background: #eef4ff; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,4 +108,141 @@
 .signup span {
   color: #2563eb;
   cursor: pointer;
+}
+.login-wrapper {
+
+  display: flex;
+
+  height: 100vh;
+
+  font-family: Arial, sans-serif;
+
+}
+
+.login-left {
+
+  flex: 1;
+
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+
+  color: white;
+
+  display: flex;
+
+  flex-direction: column;
+
+  /* background-image: url(../assets/handshake.jpg); */
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 40px;
+
+}
+
+/* .login-left::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.5);
+
+} */
+
+.login-left img {
+
+  width: 300px;
+
+  margin-bottom: 20px;
+
+  filter: brightness(0) invert(1);
+
+}
+
+.login-left h1 {
+
+  font-size: 32px;
+
+  margin-bottom: 10px;
+
+}
+
+.login-left p {
+
+  font-size: 18px;
+
+}
+
+.login-right {
+
+  flex: 1;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  background: #f9fafb;
+
+}
+
+.login-form {
+
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 10px;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+  width: 350px;
+
+}
+
+.login-form input {
+
+  width: 100%;
+
+  padding: 10px;
+
+  margin: 10px 0;
+
+  border: 1px solid #ccc;
+
+  border-radius: 6px;
+
+}
+
+.login-form button {
+
+  width: 100%;
+
+  padding: 10px;
+
+  background: #2563eb;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+}
+
+.login-form button:hover {
+
+  background: #1d4ed8;
+
 }
