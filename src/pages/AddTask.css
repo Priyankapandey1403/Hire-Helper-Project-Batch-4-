@@ -1,0 +1,65 @@
+.add-task-page {
+  padding: 40px;
+  background: #f5f7fb;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.add-task-card {
+  background: white;
+  padding: 30px;
+  width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.add-task-card h2 {
+  margin-bottom: 5px;
+}
+
+.add-task-card p {
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.add-task-card input,
+.add-task-card textarea,
+.add-task-card select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.upload-box {
+  border: 2px dashed #ccc;
+  padding: 25px;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  color: #888;
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #2563eb, #1e40af);
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.primary-btn:hover {
+  opacity: 0.9;
+}

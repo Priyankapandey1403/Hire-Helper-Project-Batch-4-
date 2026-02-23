@@ -120,3 +120,17 @@
   background: #ffeaea;
   color: red;
 }
+
+.menu-item {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-item.active {
+  background-color: #e3eaff;
+  border-radius: 8px;
+  font-weight: 600;
+}

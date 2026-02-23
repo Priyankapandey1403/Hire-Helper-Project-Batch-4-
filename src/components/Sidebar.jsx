@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate , useLocation} from "react-router-dom";
 import {
   Home,
   ClipboardList,
@@ -9,9 +9,11 @@ import {
   LogOut
 } from "lucide-react";
 import "../styles/Sidebar.css";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   // ✅ Get logged-in user from localStorage
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -30,39 +32,75 @@ const Sidebar = () => {
           <div className="logo-icon">🔧</div>
           <h2 className="logo-text">Hire-a-Helper</h2>
         </div>
+   
+       
+         
+            
+     <ul className="menu">
 
-        <ul className="menu">
-          <li className="menu-item active">
-            <Home size={18} />
-            <span>Feed</span>
-          </li>
+  <li
+    className={`menu-item ${
+      location.pathname === "/dashboard" ? "active" : ""
+    }`}
+    onClick={() => navigate("/dashboard")}
+  >
+    <Home size={18} />
+    <span>Feed</span>
+  </li>
 
-          <li className="menu-item">
-            <ClipboardList size={18} />
-            <span>My Tasks</span>
-          </li>
+  <li
+    className={`menu-item ${
+      location.pathname === "/dashboard/my-tasks" ? "active" : ""
+    }`}
+    onClick={() => navigate("/dashboard/my-tasks")}
+  >
+    <ClipboardList size={18} />
+    <span>My Tasks</span>
+  </li>
 
-          <li className="menu-item">
-            <Inbox size={18} />
-            <span>Requests</span>
-          </li>
+  <li
+    className={`menu-item ${
+      location.pathname === "/dashboard/requests" ? "active" : ""
+    }`}
+    onClick={() => navigate("/dashboard/requests")}
+  >
+    <Inbox size={18} />
+    <span>Requests</span>
+  </li>
 
-          <li className="menu-item">
-            <Inbox size={18} />
-            <span>My Requests</span>
-          </li>
+ <li
+    className={`menu-item ${
+      location.pathname === "/dashboard/my-requests" ? "active" : ""
+    }`}
+    onClick={() => navigate("/dashboard/my-requests")}
+  >
+    <Inbox size={18} />
+    <span>My Requests</span>
+  </li>
 
-          <li className="menu-item">
-            <Plus size={18} />
-            <span>Add Task</span>
-          </li>
 
-          <li className="menu-item">
-            <Settings size={18} />
-            <span>Settings</span>
-          </li>
-        </ul>
-      </div>
+
+  <li
+    className={`menu-item ${
+      location.pathname === "/dashboard/add-task" ? "active" : ""
+    }`}
+    onClick={() => navigate("/dashboard/add-task")}
+  >
+    <Plus size={18} />
+    <span>Add Task</span>
+  </li>
+
+  <li className="menu-item">
+    <Settings size={18} />
+    <span>Settings</span>
+  </li>
+
+</ul>
+
+</div>
+
+
+
 
       {/* Bottom Section */}
       <div className="bottom-profile">

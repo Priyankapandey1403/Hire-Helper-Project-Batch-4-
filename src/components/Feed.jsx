@@ -3,10 +3,10 @@ import { FiBell } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import "../styles/Feed.css";
 
-const Feed = () => {
+const Feed = ({tasks}) => {
   const navigate = useNavigate();
 
-  const tasks = [
+  const staticTasks = [
     {
       title: "Moving Furniture",
       description: "Need help moving furniture from apartment to house.",
@@ -82,7 +82,7 @@ const Feed = () => {
         "https://images.pexels.com/photos/7180618/pexels-photo-7180618.jpeg",
     },
   ];
-
+ const allTasks = [...staticTasks, ...(tasks || [])];
   return (
     <div className="feed-container">
       {/* Header Section */}
@@ -111,26 +111,31 @@ const Feed = () => {
       <div className="card-grid">
         {tasks.map((task, index) => (
           <div className="card" key={index}>
-            <img src={task.image} alt={task.title} />
+            {task.image && (
+<img src={task.image} alt={task.title} />
+            )}
+            
 
-            <div className="card-body">
+             <div className="card-body">
               <h3>{task.title}</h3>
               <p>{task.description}</p>
 
               <div className="info">
-                <p><strong>Location:</strong> {task.location}</p>
-                <p><strong>Time:</strong> {task.time}</p>
+                <p><strong>Location 📍:</strong> {task.location}</p>
+                <p><strong>Time 🕒:</strong> {task.dateTime}</p>
                 <p><strong>Posted by:</strong> {task.user}</p>
-                {task.budget && (
+                { task.budget && (
                   <p><strong>Budget:</strong> {task.budget}</p>
-                )}
-              </div>
+                ) }
+              </div> 
+
+              
 
               <div className="card-footer">
                 <button>Request</button>
               </div>
             </div>
-          </div>
+        </div>
         ))}
       </div>
     </div>
