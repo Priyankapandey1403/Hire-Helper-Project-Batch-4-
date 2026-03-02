@@ -39,6 +39,27 @@
   box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
 }
 
+
+/* ===== Notification Bell ===== */
+
+.notification {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bell-icon {
+  font-size: 22px;
+  color: #6b7280;   /* Grey default */
+  transition: color 0.3s ease;
+}
+
+.notification:hover .bell-icon {
+  color: red;      /* Red on hover */
+}
+
 /* ===== CARD GRID ===== */
 
 .card-grid {
@@ -109,32 +130,4 @@
 
 .card-footer button:hover {
   background-color: #4338ca;
-}
-.notification {
-  position: relative;
-  cursor: pointer;
-  align-items: center;
-  color: red;
-  display: inline-block;
-}
-.notification {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  color: #555;
-  transition: 0.2s;
-}
-
-.notification:hover {
-  color: red;
-}
-.badge {
-  position: absolute;
-  top: -5px;
-  right: -8px;
-  background: red;
-  color: white;
-  font-size: 11px;
-  padding: 2px 6px;
-  border-radius: 50%;
 }

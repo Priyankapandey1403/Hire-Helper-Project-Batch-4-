@@ -1,0 +1,212 @@
+/* ===== Page Wrapper ===== */
+.create-task-page {
+  width: 100%;
+}
+
+/* ===== Header Section ===== */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* Left Header */
+.header-left h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.header-left p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Right Header */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Search Input */
+.search-input {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  outline: none;
+  width: 220px;
+}
+
+/* ===== Notification Bell Minimal Style ===== */
+.notification {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bell-icon {
+  font-size: 22px;
+  color: #6b7280;   /* Grey default */
+  transition: color 0.3s ease;
+}
+
+.notification:hover .bell-icon {
+  color: red;      /* Red on hover */
+}
+
+/* ===== White Card Container ===== */
+.create-task-container {
+  max-width: 720px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.create-task-container h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+/* ===== Form Styling ===== */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.task-form label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.task-form input,
+.task-form textarea,
+.task-form select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.task-form textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+.task-form input:focus,
+.task-form textarea:focus,
+.task-form select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+}
+
+/* Date & Time Row */
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+.row > div {
+  flex: 1;
+}
+
+/* Post Button */
+.post-btn {
+  margin-top: 25px;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.post-btn:hover {
+  opacity: 0.9;
+}
+/* ===== Image Upload Box ===== */
+.image-upload-box {
+  position: relative;
+  border: 2px dashed #d1d5db;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background-color: #fafafa;
+}
+
+.image-upload-box:hover {
+  border-color: #3b82f6;
+  background-color: #f0f7ff;
+}
+
+.image-upload-box input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.upload-content {
+  pointer-events: none;
+}
+
+.upload-icon {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.upload-content p {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.upload-content small {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* ===== Button Row ===== */
+.button-row {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.cancel-btn {
+  padding: 14px 25px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #f3f4f6;
+}

@@ -1,0 +1,21 @@
+
+
+/* Target the React Icon directly */
+
+.notification {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bell-icon {
+  font-size: 22px;
+  color: #6b7280;   /* Grey default */
+  transition: color 0.3s ease;
+}
+
+.notification:hover .bell-icon {
+  color: red;      /* Red on hover */
+}
